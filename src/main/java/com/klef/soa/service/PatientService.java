@@ -10,5 +10,5 @@ public interface PatientService {
     Patient updatePatient(Patient p);
     Patient displayPatientById(Long id);
     String deletePatientById(Long id);
-    List<Patient> displayPatinetsByGender(String gender);
+    List<Patient> displayPatientsByGender(String gender);
 }
