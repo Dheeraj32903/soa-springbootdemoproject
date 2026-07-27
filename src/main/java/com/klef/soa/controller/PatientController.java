@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityReturnValueHandler;
+
 import com.klef.soa.entity.Patient;
 import com.klef.soa.service.PatientService;
 @RestController
@@ -63,5 +65,11 @@ public class PatientController{
 	public ResponseEntity<List<Patient>> displayPatientsByGender(@PathVariable String gender){
 		List<Patient> patients = service.displayPatientsByGender(gender);
 		return ResponseEntity.status(200).body(patients);
+	}
+	@GetMapping("/count")
+	public ResponseEntity<String> displayPatientCount() {
+    Long count=service.displayPatientCount();
+    String msg="Total Patients="+count;
+    return ResponseEntity.ok(msg);
 	}
 }

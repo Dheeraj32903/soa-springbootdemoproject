@@ -65,4 +65,9 @@ public class PatientServiceImpl implements PatientService{
 		
 	}
 
+	@Override
+	public Long displayPatientCount() {
+		return repo.count();
+	}
+
 }
